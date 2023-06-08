@@ -13,3 +13,9 @@ Contiene la funcionalidad del tracker
 	* DownloaderImpl: Implementacion del downloader
 	* Downloader: Usa DownloaderImpl para descargar un fichero. Programa para hacer pruebas 
 		      no hace falta modificar.
+
+# Modificaremos los siguientes ficheros 
+
+	* TrackerSrv.java
+	* Publisher.java
+	* DownloaderImpl.java
