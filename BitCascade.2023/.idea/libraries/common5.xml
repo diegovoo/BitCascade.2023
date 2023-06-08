@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="common5">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/ejemplos_JavaRMI/1_eco/server_node/common.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
