@@ -17,7 +17,7 @@ import interfaces.FileInfo;
 // guarda la información de los ficheros publicados asociando el nombre
 // del fichero con un objeto de la clase FileInfo que contiene esa información
 // usando para ello algún tipo de mapa (p.e. HashMap)
-class TrackerSrv extends UnicastRemoteObject implements Tracker  {
+class  TrackerSrv extends UnicastRemoteObject implements Tracker  {
     public static final long serialVersionUID=1234567890L;
     String name;
     // TODO 1: añadir los campos que se requieran
