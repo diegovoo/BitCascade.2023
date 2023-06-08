@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="common4">
-    <CLASSES>
-      <root url="jar://$PROJECT_DIR$/ejemplos_JavaRMI/2_chat/client_node/common.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>
