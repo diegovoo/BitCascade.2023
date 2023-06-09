@@ -1,0 +1,12 @@
+{
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar",
+        "BitCascade.2023/tracker_node/common.jar",
+        "BitCascade.2023/peer_node/common.jar",
+        "BitCascade.2023/common/common.jar",
+        "BitCascade.2023/ejemplos_JavaRMI/1_eco/client_node/common.jar",
+        "BitCascade.2023/ejemplos_JavaRMI/2_chat/server_node/common.jar",
+        "BitCascade.2023/ejemplos_JavaRMI/1_eco/server_node/common.jar"
+    ],
+    "java.project.sourcePaths": []
+}

@@ -14,6 +14,7 @@ import interfaces.Seed;
 import interfaces.Tracker;
 
 // Se comporta como un objeto remoto: UnicastRemoteObject
+@SuppressWarnings("deprecation")
 public class Publisher extends UnicastRemoteObject implements Seed {
     public static final long serialVersionUID=1234567890L;
     String name; // nombre del nodo (solo para depurar)
@@ -64,13 +65,18 @@ public class Publisher extends UnicastRemoteObject implements Seed {
             // a esta variable:
             Tracker trck = null;
 
+            Registry registry = LocateRegistry.getRegistry(args[0], Integer.parseInt(args[1]));
+            trck = (Tracker) registry.lookup("mi_tracker");
             // comprobamos si ha obtenido bien la referencia:
             System.out.println("el nombre del nodo del tracker es: " + trck.getName());
             // TODO 1: crea un objeto de la clase Publisher y usa el método
             // remoto announceFile del Tracker para publicar el fichero
             // (nº bloques disponible en getNumBlocks de esa clase)
             //
-            boolean res = false; // asigna resultado de announceFile
+            Publisher publisher = new Publisher(args[2], args[3], Integer.parseInt(args[4]));
+            
+
+            boolean res = trck.announceFile(publisher, "Fichero", 512, publisher.getNumBlocks());// asigna resultado de announceFile
             if (!res) { // comprueba resultado
                 // si false: ya existe fichero publicado con ese nombre
                 System.err.println("Fichero ya publicado");

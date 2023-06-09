@@ -38,7 +38,8 @@ class LeechInfo {
 // Esta clase actúa solo de cliente en las dos primeras fases, pero
 // en las dos últimas ejerce también como servidor convirtiéndose en
 // un objeto remoto.
-public class DownloaderImpl { 
+@SuppressWarnings("removal")
+public class DownloaderImpl {
     String name; // nombre del nodo (solo para depurar)
     String file;
     String path;
@@ -113,6 +114,7 @@ public class DownloaderImpl {
     // método estático que obtiene del registry una referencia al tracker y
     // obtiene mediante lookupFile la información del fichero especificado
     // creando una instancia de esta clase
+
     static public DownloaderImpl init(String host, int port, String name, String file) throws RemoteException {
         if (System.getSecurityManager() == null)
             System.setSecurityManager(new SecurityManager());

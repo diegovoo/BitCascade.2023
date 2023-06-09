@@ -6,6 +6,7 @@ import java.rmi.server.UnicastRemoteObject;
 import interfaces.EchoService;
 
 // Objeto remoto que actúa de servidor de eco
+@SuppressWarnings("deprecation")
 class EchoServer extends UnicastRemoteObject implements EchoService  {
     public static final long serialVersionUID=1234567890L;
     EchoServer() throws RemoteException {
