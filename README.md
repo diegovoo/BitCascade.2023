@@ -1,6 +1,6 @@
 # BitCascade.2023
 
-# notas para importantes / brainstorm 
+# notas importantes / brainstorm 
 
 ## Common 
 Paquete de interfaces donde estan definidas y programadas y NO modificar
