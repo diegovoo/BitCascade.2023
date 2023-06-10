@@ -27,11 +27,12 @@ class TrackerSrv extends UnicastRemoteObject implements Tracker {
     String name;
     // TODO 1: añadir los campos que se requieran
     
-    public static HashMap<String,FileInfo> mapFileMap = new HashMap<>();
+    private static HashMap<String,FileInfo> mapFileMap;
 
     public TrackerSrv(String n) throws RemoteException {
         name = n;
         // TODO 1: inicializar campos adicionales
+        mapFileMap = new HashMap<>();
     }
 
     // NO MODIFICAR: solo para depurar
