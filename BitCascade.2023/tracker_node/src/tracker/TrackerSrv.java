@@ -26,8 +26,8 @@ class TrackerSrv extends UnicastRemoteObject implements Tracker {
     public static final long serialVersionUID = 1234567890L;
     String name;
     // TODO 1: añadir los campos que se requieran
-    HashMap<String,FileInfo> mapFileMap = new HashMap<>();
-
+    
+    public static HashMap<String,FileInfo> mapFileMap = new HashMap<>();
 
     public TrackerSrv(String n) throws RemoteException {
         name = n;
@@ -58,7 +58,15 @@ class TrackerSrv extends UnicastRemoteObject implements Tracker {
 
     // TODO 1: obtiene acceso a la metainformacion de un fichero
     public synchronized FileInfo lookupFile(String fileName) throws RemoteException {
-        return null;
+
+        /* FileInfo fileInfo = null;
+
+        if (mapFileMap.containsKey(fileName)) {
+            fileInfo = mapFileMap.get(fileName);
+        } */
+
+        return mapFileMap.get(fileName);
+        //return fileInfo;
     }
 
     // TODO 3: se anade un nuevo leech a ese fichero (tercera fase)

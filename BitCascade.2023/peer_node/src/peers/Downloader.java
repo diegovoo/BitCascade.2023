@@ -19,11 +19,9 @@ public class Downloader {
 
             // Instancia la clase que implementa la interfaz Leech
             DownloaderImpl d = DownloaderImpl.init(args[0], Integer.parseInt(args[1]), args[2], args[3]);
-
             // Imprime la información del fichero lo que permite verificar
             // si ha funcionado el método lookupFile.
             d.getFileInfo().print();
-
             // Bucle que descarga los bloques del fichero
             boolean EOF = false;
             for (int i = 0; !EOF; i++) {
