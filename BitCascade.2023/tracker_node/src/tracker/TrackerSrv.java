@@ -28,7 +28,7 @@ class TrackerSrv extends UnicastRemoteObject implements Tracker {
     // TODO 1: añadir los campos que se requieran
     private static HashMap<String, FileInfo> mapFileMap;
 
-    public TrackerSrv (String n) throws RemoteException {
+    public TrackerSrv(String n) throws RemoteException {
         name = n;
         // TODO 1: inicializar campos adicionales
         mapFileMap = new HashMap<>();
