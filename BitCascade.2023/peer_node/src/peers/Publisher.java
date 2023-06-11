@@ -39,7 +39,7 @@ public class Publisher extends UnicastRemoteObject implements Seed {
         numBlocks = (int) (new File(path).length() + blockSize - 1) / blockSize;
 
         // TODO 2: abrir el fichero para leer (RandomAccessFile)
-       randomAccessFile = new RandomAccessFile(path, "r");
+        randomAccessFile = new RandomAccessFile(path, "r");
     }
 
     public String getName() throws RemoteException {
@@ -100,11 +100,15 @@ public class Publisher extends UnicastRemoteObject implements Seed {
             Publisher publisher = null;
             boolean res = false;
 
+            // null if fileName is not in map
             if (trck.lookupFile(args[3]) == null) {
-            publisher = new Publisher(args[2], args[3], Integer.parseInt(args[4]));
-            res = trck.announceFile(publisher, args[3], Integer.parseInt(args[4]), publisher.getNumBlocks());
+
+                // hay que comprobar si el path que se genera con args[2] + / + args[3] existe?
+
+                publisher = new Publisher(args[2], args[3], Integer.parseInt(args[4]));
+                res = trck.announceFile(publisher, args[3], Integer.parseInt(args[4]), publisher.getNumBlocks());
             }
-        
+
             if (!res) { // comprueba resultado
                 // si false: ya existe fichero publicado con ese nombre
                 System.err.println("Fichero ya publicado");
