@@ -78,14 +78,14 @@ public class DownloaderImpl {
     // realiza la descarga de un bloque y lo almacena en un fichero local
     public boolean downloadBlock(int numBl) throws RemoteException {
         // TODO 2: Lee bloque del seed y lo escribe en el fichero
-//        if (numBl < numBlocks) {
+        if (numBl < numBlocks) {
         try {
         randomAccessFile.write(seed.read(numBl));
         return true;
         } catch (IOException e) {
             System.out.println("Exception Donwloader");
         }
-//    }
+    }
 
 	// TODO 3: Alterna leer bloques del seed y de otros leeches
 	// TODO 4: Notifica a los leeches posteriores (notifyBlock)

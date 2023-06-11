@@ -26,12 +26,12 @@ class TrackerSrv extends UnicastRemoteObject implements Tracker {
     public static final long serialVersionUID = 1234567890L;
     String name;
     // TODO 1: añadir los campos que se requieran
-    
-    public static HashMap<String,FileInfo> mapFileMap = new HashMap<>();
+    private static HashMap<String, FileInfo> mapFileMap;
 
-    public TrackerSrv(String n) throws RemoteException {
+    public TrackerSrv (String n) throws RemoteException {
         name = n;
         // TODO 1: inicializar campos adicionales
+        mapFileMap = new HashMap<>();
     }
 
     // NO MODIFICAR: solo para depurar
@@ -46,27 +46,18 @@ class TrackerSrv extends UnicastRemoteObject implements Tracker {
         // TODO 1: se crea un objeto FileInfo con la información del fichero
         // y se inserta en el mapa
         FileInfo fileInfo = new FileInfo(publisher, blockSize, numBlocks);
-        if(!mapFileMap.containsKey(fileName)){
+        if (!mapFileMap.containsKey(fileName)) {
             mapFileMap.put(fileName, fileInfo);
             System.out.println(publisher.getName() + " ha publicado " + fileName);
             return true;
-        }
-        else{
+        } else {
             return false;
         }
     }
 
     // TODO 1: obtiene acceso a la metainformacion de un fichero
     public synchronized FileInfo lookupFile(String fileName) throws RemoteException {
-
-        /* FileInfo fileInfo = null;
-
-        if (mapFileMap.containsKey(fileName)) {
-            fileInfo = mapFileMap.get(fileName);
-        } */
-
         return mapFileMap.get(fileName);
-        //return fileInfo;
     }
 
     // TODO 3: se anade un nuevo leech a ese fichero (tercera fase)
@@ -87,7 +78,7 @@ class TrackerSrv extends UnicastRemoteObject implements Tracker {
             // TODO 1: localiza el registry en el puerto recibido en args[0]]
             // y da de alta el servicio bajo el nombre "BitCascade"
             Registry registry = LocateRegistry.getRegistry(Integer.parseInt(args[0]));
-            registry.rebind(args[1], srv);
+            registry.rebind("mi_tracker", srv);
 
         } catch (Exception e) {
             System.err.println("Tracker exception:");
